@@ -239,13 +239,11 @@ export default function Footer() {
             Explore Studio Apartments by Location
           </h3>
 
-          {/* <p className="text-gray-400 text-sm mt-2">
-            Find premium studio apartments across top locations in Gurgaon & Faridabad with high rental returns.
-          </p> */}
+          
 
         </div>
 
-        {/* LOCATIONS */}
+        
 
         <div className="mb-10">
 
