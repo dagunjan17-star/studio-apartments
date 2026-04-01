@@ -1,50 +1,32 @@
 import React from "react";
-import { headers } from "next/headers";
 import BlogList from "./BlogList";
 
-export async function generateMetadata() {
+export const metadata = {
+  title: "Studio Apartments in Gurgaon Blog | Investment & ROI Guides",
 
-  const h = await headers();
-  const domain = h.get("host") || "localhost";
+  description:
+    "Explore expert insights on studio apartments in Gurgaon, including rental income, ROI, best locations, and smart property investment strategies.",
 
-  // remove www
-  const cleanDomain = domain.replace(/^www\./, "");
+  keywords: [
+    "studio apartments in Gurgaon",
+    "Gurgaon property investment blog",
+    "rental income Gurgaon apartments",
+    "ROI on studio apartments Gurgaon",
+    "best areas to invest in Gurgaon",
+    "Gurgaon real estate insights",
+  ],
 
-  return {
-
-    title: "Studio Apartments in Gurgaon Blog | Investment & ROI Guides",
-
-    description:
-      "Explore expert insights on studio apartments in Gurgaon, including rental income, ROI, best locations, and smart property investment strategies.",
-
-    keywords: [
-      "studio apartments in Gurgaon",
-      "Gurgaon property investment blog",
-      "rental income Gurgaon apartments",
-      "ROI on studio apartments Gurgaon",
-      "best areas to invest in Gurgaon",
-      "Gurgaon real estate insights"
-    ],
-
-    alternates: {
-      canonical: `https://${cleanDomain}/blog`
-    },
-
-  };
-}
-
-const page = () => {
-
-  return (
-
-    <div className="min-h-screen bg-gradient-to-b from-white to-[#E6FFFA]">
-
-      <BlogList />
-
-    </div>
-
-  );
-
+  alternates: {
+    canonical: "www.studioapartmentsingurgaon.com/blog", // 👉 apna domain daal dena
+  },
 };
 
-export default page;
+const Page = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white to-[#E6FFFA]">
+      <BlogList />
+    </div>
+  );
+};
+
+export default Page;
