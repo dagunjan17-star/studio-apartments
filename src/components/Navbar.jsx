@@ -25,10 +25,10 @@ const Navbar = () => {
 
             <Link
               href="/"
-              className="text-lg sm:text-xl font-semibold tracking-tight"
+              className="text-xl sm:text-xl font-semibold tracking-tight"
             >
-              <span className="text-gray-900">Studio Apartments</span>{" "}
-              <span className="text-[#3BC1A8]">Gurgaon</span>
+              <span className="text-[#3BC1A8]">DA</span>
+              
             </Link>
 
             {/* ================= DESKTOP LINKS ================= */}
