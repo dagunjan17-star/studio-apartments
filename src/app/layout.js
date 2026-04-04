@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Plot For Sale Gurgaon",
-  description: "Find verified Plot For Sale in Gurgaon with best deals.",
+  title: "Studio Apartment Gurgaon",
+  description: "Find verified Studio Apartment in Gurgaon with best deals.",
 };
 
 export default function RootLayout({ children }) {
