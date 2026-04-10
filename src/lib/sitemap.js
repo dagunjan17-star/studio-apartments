@@ -20,7 +20,7 @@ export async function generateSitemap() {
     <url><loc>${baseUrl}/about</loc></url>
     <url><loc>${baseUrl}/contact</loc></url>
     <url><loc>${baseUrl}/blog</loc></url>
-    <url><loc>${baseUrl}/studio-apartment-in-gurgaon</loc></url>
+    <url><loc>${baseUrl}/how-it-works</loc></url>
 
   `;
 
@@ -48,7 +48,7 @@ export async function generateSitemap() {
 
     return `
       <url>
-        <loc>${baseUrl}/${slug}</loc>
+        <loc>${baseUrl}/studio-apartments-in-${slug}-gurgaon</loc>
       </url>
     `;
   });

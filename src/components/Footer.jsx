@@ -30,7 +30,22 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
 
         {/* HEADING */}
+{/* 🔥 TOP HEADING */}
+<div className="mb-12 ">
 
+  <h2 className="text-2xl sm:text-3xl font-bold text-white">
+    Explore Studio Apartments in{" "}
+    <span className="text-[#3BC1A8]">Gurgaon</span>
+  </h2>
+
+  <p className="text-gray-400 mt-3 max-w-2xl  text-sm sm:text-base">
+    Discover modern studio apartments in prime Gurgaon locations,
+    ideal for working professionals and smart investments.
+  </p>
+
+  <div className="w-20 h-1 bg-[#3BC1A8]  mt-5 rounded-full"></div>
+
+</div>
         <div className="mb-10 ">
 
           <h3 className="text-2xl font-semibold text-white">
@@ -52,10 +67,10 @@ export default function Footer() {
               <div key={index} className="relative group">
 
                 <Link
-                  href={`/${createSlug(loc)}`}
+                  href={`/studio-apartments-in-${createSlug(loc)}-gurgaon`}
                   className="block truncate text-gray-400 hover:text-[#3BC1A8] transition duration-300"
                 >
-                  Studio Apartments in {loc}
+                  Studio Apartments in {loc},Gurgaon
                 </Link>
 
                 {/* TOOLTIP */}
@@ -69,7 +84,7 @@ export default function Footer() {
                 border border-[#3BC1A8]/40 z-[9999]
                 pointer-events-none">
 
-                  Studio Apartments in {loc}
+                  Studio Apartments in {loc},Gurgaon
 
                 </div>
 
@@ -110,7 +125,42 @@ export default function Footer() {
         </div>
 
         {/* FOOTER BOTTOM */}
+{/* 🔥 Bottom Navigation Buttons - CENTER */}
+<div className="border-t border-[#1a2238] pt-6 mt-10 mb-6">
+  <div className="flex justify-center items-center">
 
+    <div className="flex flex-wrap gap-6 justify-center text-sm">
+      <Link
+        href="/about"
+        className="text-gray-400 hover:text-[#3BC1A8] transition"
+      >
+        About
+      </Link>
+
+      <Link
+        href="/blog"
+        className="text-gray-400 hover:text-[#3BC1A8] transition"
+      >
+        Blog
+      </Link>
+
+      <Link
+        href="/contact"
+        className="text-gray-400 hover:text-[#3BC1A8] transition"
+      >
+        Contact
+      </Link>
+
+      <Link
+        href="/how-it-works"
+        className="text-gray-400 hover:text-[#3BC1A8] transition"
+      >
+        How It's Work
+      </Link>
+    </div>
+
+  </div>
+</div>
         <div className="border-t border-[#1a2238] pt-6 flex flex-col md:flex-row items-center justify-between">
 
           <p className="text-sm text-gray-500 text-center md:text-left">

@@ -94,7 +94,7 @@ const HeroSection = () => {
             <span>✔ Fully Furnished</span>
             <span>✔ High ROI Investment</span>
           </div>
-<Link href="/studio-apartment-in-gurgaon">
+<Link href="/how-it-works">
   <button className="relative overflow-hidden bg-white text-[#3BC1A8] px-6 py-3 rounded-xl font-semibold shadow-md transition-all duration-300 hover:bg-white hover:shadow-xl hover:scale-105 mt-4 cursor-pointer">
     
     <span className="relative z-10">Learn More</span>
