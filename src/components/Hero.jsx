@@ -61,9 +61,8 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-[75vh] flex items-center">
-
-     
+<section className="relative w-full min-h-[75vh] md:min-h-[75vh] flex items-start md:items-center pt-6 pb-10 md:py-6">
+      {/* 🔥 BACKGROUND IMAGE */}
       <div className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267"
