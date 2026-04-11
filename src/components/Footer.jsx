@@ -73,7 +73,7 @@ export default function Footer() {
                   Studio Apartments in {loc},Gurgaon
                 </Link>
 
-                {/* TOOLTIP */}
+              
 
                 <div className="
                 absolute left-1/2 -translate-x-1/2 bottom-full mb-2
@@ -92,7 +92,7 @@ export default function Footer() {
 
             ))}
 
-            {/* VIEW MORE / LESS */}
+            
 
             {!showAll && locations.length > initialCount && (
 
