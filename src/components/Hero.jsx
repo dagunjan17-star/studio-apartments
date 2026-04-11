@@ -63,7 +63,7 @@ const HeroSection = () => {
   return (
     <section className="relative h-[75vh] flex items-center">
 
-      {/* 🔥 BACKGROUND IMAGE */}
+     
       <div className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267"
