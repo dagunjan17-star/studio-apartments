@@ -124,8 +124,7 @@ export default function Footer() {
 
         </div>
 
-        {/* FOOTER BOTTOM */}
-{/* 🔥 Bottom Navigation Buttons - CENTER */}
+  
 <div className="border-t border-[#1a2238] pt-6 mt-10 mb-6">
   <div className="flex justify-center items-center">
 
