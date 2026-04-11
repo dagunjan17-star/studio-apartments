@@ -34,7 +34,7 @@ export const PropertyProvider = ({ children }) => {
       const res = await axios.get(
         `https://deal-acres-backend.onrender.com/api/listed-properties/getPropertiesByDomain/${domain}`
       );
-console.log("API Response:", res.data);
+
       setProperties(res.data?.data || []);
     } catch (err) {
       lastFetchedDomain.current = null;
