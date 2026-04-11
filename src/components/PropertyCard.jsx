@@ -24,7 +24,7 @@ export default function PropertyCard({ property }) {
     <>
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-300 overflow-hidden flex flex-col h-full">
 
-        {/* IMAGE */}
+     
 
         <div className="relative w-full h-44 overflow-hidden">
 
@@ -36,7 +36,7 @@ export default function PropertyCard({ property }) {
             className="w-full h-full object-cover hover:scale-105 transition duration-500"
           />
 
-          {/* BADGE */}
+       
 
           <span
             onClick={() => setOpen(true)}
