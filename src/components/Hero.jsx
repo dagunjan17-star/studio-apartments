@@ -74,7 +74,7 @@ const HeroSection = () => {
 
       <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12 px-4">
 
-        {/* LEFT CONTENT */}
+        
         <div className="text-white">
 
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
