@@ -25,22 +25,22 @@ export async function generateSitemap() {
   `;
 
  //properties URLs
-  let propertiesUrls = [];
-  try {
-    const res = await axios.get(
-      `https://deal-acres-backend.onrender.com/api/listed-properties/getPropertiesSlugs/www.studioapartmentsingurgaon.com`
-    );
+  // let propertiesUrls = [];
+  // try {
+  //   const res = await axios.get(
+  //     `https://deal-acres-backend.onrender.com/api/listed-properties/getPropertiesSlugs/www.studioapartmentsingurgaon.com`
+  //   );
 
-    propertiesUrls = res.data.map(
-      (slug) => `
-        <url>
-          <loc>${baseUrl}/properties/${slug}</loc>
-        </url>
-      `
-    );
-  } catch (err) {
-    console.error("Blog fetch error:", err);
-  }
+  //   propertiesUrls = res.data.map(
+  //     (slug) => `
+  //       <url>
+  //         <loc>${baseUrl}/properties/${slug}</loc>
+  //       </url>
+  //     `
+  //   );
+  // } catch (err) {
+  //   console.error("Blog fetch error:", err);
+  // }
 
   // 🔥 LOCATION URLs (MAIN PART)
   const locationUrls = locations.map((loc) => {
@@ -57,7 +57,7 @@ export async function generateSitemap() {
   const allUrls = [
     staticUrls,
     ...locationUrls,
-    ...propertiesUrls,
+    // ...propertiesUrls,
   ].join("\n");
 
   // 🔹 XML Output
