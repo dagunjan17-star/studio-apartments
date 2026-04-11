@@ -60,7 +60,7 @@ export default function Footer() {
 
         <div className="mb-10">
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-4 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 text-sm">
 
             {visibleLocations.map((loc, index) => (
 
