@@ -63,6 +63,7 @@ export default function PropertyDetails({ propertyy }) {
 
               <Image
                 src={propertyy.media.url}
+                unoptimized
                 alt={propertyy?.title}
                 fill
                 priority
