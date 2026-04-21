@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useBlog } from "@/contextapi/BlogContext";
 import Pagination from "@/components/Pagination";
-
+import Breadcrumb from "@/components/Breadcrumb";
 const formatDate = (date) => {
   if (!date) return "";
   const d = new Date(date);
@@ -37,21 +37,23 @@ export default function BlogList() {
       className="px-4 sm:px-6 lg:px-0 max-w-7xl mx-auto py-12
       bg-gradient-to-b from-white to-[#E6FFFA]"
     >
-
+<div className="mb-6">
+   <Breadcrumb />
+  </div>
       {/* HEADING */}
-      <div className="text-center  pt-10">
+      <div className=" pt-10">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
           Latest Insights on{" "}
           <span className="text-[#3BC1A8]">Studio Apartment Investment</span>
         </h2>
 
-        <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+        <p className="text-gray-600 mt-4 max-w-2xl ">
           Explore expert guides, ROI insights, and market trends for investing in 
           <strong> studio apartments in Gurgaon</strong>. Stay updated with the latest 
           opportunities for high rental income and smart property investments.
         </p>
 
-        <div className="w-20 h-1 bg-gradient-to-r from-[#3BC1A8] to-[#249E94] mx-auto mt-6 rounded-full"></div>
+        <div className="w-20 h-1 bg-gradient-to-r from-[#3BC1A8] to-[#249E94]  mt-6 rounded-full"></div>
       </div>
 
       {/* LOADING */}
