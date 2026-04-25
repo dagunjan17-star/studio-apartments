@@ -18,22 +18,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
- title: "Studio Apartments in Gurgaon | Affordable & Furnished Studio Flats",
+ title: "Studio Apartments in Gurgaon | Furnished Studio Flats & 1RK for Sale",
 
 description:
-"Find verified studio apartments in Gurgaon including furnished studio flats and compact homes. Explore affordable and premium studio properties in prime locations with modern amenities, high rental yield, and excellent connectivity.",
+"Buy premium studio apartments in Gurgaon with assured rental income, high ROI & modern amenities. Explore verified furnished & affordable studio flats in Sohna Road, Golf Course Extension, DLF Phase & 50+ locations in Gurugram.",
 
 keywords: [
-  "studio apartment gurgaon",
-  "studio flats in gurgaon",
-  "studio apartment for sale gurgaon",
-  "studio apartment for rent gurgaon",
-  "furnished studio gurgaon",
-  "studio flat gurgaon price",
-  "buy studio apartment gurgaon",
-  "investment studio gurgaon",
-  "ready to move studio gurgaon",
-  "small apartment gurgaon"
+  "studio apartments in Gurgaon", "studio apartment Gurgaon", "studio flat in Gurgaon", "buy studio apartment Gurgaon", "furnished studio apartment Gurgaon", "1RK apartment Gurgaon", "affordable studio apartment Gurgaon", "studio apartment for sale Gurgaon", "studio flat Gurugram", "investment studio apartment Gurgaon", "ready to move studio apartment Gurgaon", "compact apartment Gurgaon", "small apartment Gurgaon", "studio apartment near metro Gurgaon", "studio apartment Sohna Road", "studio apartment Golf Course Extension Gurgaon", "studio apartment DLF Phase Gurgaon", "assured rental income Gurgaon", "high ROI property Gurgaon", "studio apartment for working professionals Gurgaon"
 ],
 
   alternates: {

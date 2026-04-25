@@ -77,9 +77,9 @@ export default function Properties() {
 
       <div className="max-w-7xl mx-auto mb-14">
 
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
           Premium Studio Apartments in Gurgaon
-        </h1>
+        </h2>
 
         <p className="mt-4 text-gray-500 max-w-2xl">
           Discover high-return studio apartments in Gurgaon’s prime locations.

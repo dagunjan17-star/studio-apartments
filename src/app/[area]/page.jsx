@@ -1,6 +1,37 @@
 import FilterProperties from "./FilterProperties";
 import SidebarEnquiryForm from "@/components/SidebarEnquiryForm";
 import Breadcrumb from "@/components/Breadcrumb";
+export async function generateMetadata({ params }) {
+  const resolvedParams = await params;
+  const rawArea = resolvedParams?.area;
+
+  const area = rawArea?.replace("studio-apartments-in-", "");
+
+  const formattedArea = area
+    ?.replace(/-/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+
+  const locationName = formattedArea || "Gurgaon";
+
+  return {
+    title: `Studio Apartments in ${locationName} | Buy & Invest in Studio Flats`,
+
+    description: `Explore studio apartments in ${locationName}. Find fully furnished studio flats with high rental returns, modern amenities, and excellent connectivity. Ideal for investors and working professionals in ${locationName}.`,
+
+    keywords: [
+      `studio apartments in ${locationName}`,
+      `studio flats ${locationName}`,
+      `buy studio apartment ${locationName}`,
+      `studio apartment investment ${locationName}`,
+      `furnished studio ${locationName}`,
+      `${locationName} studio property`,
+    ],
+
+    alternates: {
+      canonical: `https://www.flatsforrentingurgaon.com/${rawArea}`,
+    },
+  };
+}
 export default async function Page({ params }) {
 
   const resolvedParams = await params;

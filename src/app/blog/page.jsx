@@ -2,18 +2,13 @@ import React from "react";
 import BlogList from "./BlogList";
 
 export const metadata = {
-  title: "Studio Apartments in Gurgaon Blog | Investment & ROI Guides",
+  title: "Blog | Studio Apartments in Gurgaon | Investment Tips & ROI Guides",
 
   description:
-    "Explore expert insights on studio apartments in Gurgaon, including rental income, ROI, best locations, and smart property investment strategies.",
+    "Read expert blogs on studio apartments in Gurgaon — investment guides, rental income tips, best locations, ROI insights & market trends for studio flats & 1RK apartments in Gurugram. Stay updated before you invest.",
 
   keywords: [
-    "studio apartments in Gurgaon",
-    "Gurgaon property investment blog",
-    "rental income Gurgaon apartments",
-    "ROI on studio apartments Gurgaon",
-    "best areas to invest in Gurgaon",
-    "Gurgaon real estate insights",
+   "studio apartment Gurgaon blog", "studio flat investment guide Gurgaon", "1RK apartment tips Gurgaon", "studio apartment ROI Gurgaon", "rental income studio apartment Gurgaon", "best location studio apartment Gurgaon", "studio apartment market trends Gurgaon", "furnished apartment investment blog Gurgaon", "studio flat buying guide Gurugram", "compact apartment tips Gurgaon", "studio apartment price trends Gurgaon", "property investment blog Gurgaon", "studio apartment news Gurugram", "high ROI apartment Gurgaon blog", "real estate studio apartment Gurgaon 2026"
   ],
 
   alternates: {

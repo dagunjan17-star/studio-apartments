@@ -42,16 +42,16 @@ export async function generateMetadata({ params }) {
 
   if (!single) {
     return {
-      title: "Shop for Sale – Blog",
-      description: "Explore the latest blogs and articles on Shop for Sale.",
+      title: "studio apartment – Blog",
+      description: "Explore the latest blogs and articles on studio apartment.",
     };
   }
 
   return {
-    title: single?.MetaTitle || single?.Title || " Shop for Sale Blog",
+    title: single?.MetaTitle || single?.Title || " studio apartment Blog",
     description:
       single?.MetaDescription ||
-      "Read insightful stories and blogs on Shop for Sale.",
+      "Read insightful stories and blogs on studio apartment.",
     alternates: {
       canonical: `www.studioapartmentsingurgaon.com/blog/${slug}`,
     },
