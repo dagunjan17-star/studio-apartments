@@ -109,9 +109,9 @@ const HeroSection = () => {
 
           <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md">
 
-            <h3 className="text-xl font-semibold text-gray-900">
+            <h2 className="text-xl font-semibold text-gray-900">
               Get Best Investment Deals
-            </h3>
+            </h2>
 
             <p className="text-sm text-gray-500 mb-6">
               Fill your details & get instant callback from property expert
