@@ -128,10 +128,10 @@ export default function BlogList() {
                     {post?.Category || post?.category || "General"}
                   </span>
 
-                  <h3 className="text-lg font-semibold text-gray-900 leading-snug mb-3 
+                  <h2 className="text-lg font-semibold text-gray-900 leading-snug mb-3 
                   group-hover:text-[#3BC1A8] transition">
                     {post?.Title || post?.title || "No Title"}
-                  </h3>
+                  </h2>
 
                   <p className="text-sm text-gray-500">
                     {formatDate(post?.Date || post?.date)}
