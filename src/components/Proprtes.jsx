@@ -10,18 +10,10 @@ import Pagination from "@/components/Pagination";
 
 export default function Properties() {
 
-  const { properties, loading, error } = useProperty();
-
+ const { properties, loading, error, page, setPage,
+    totalItems, itemsPerPage, } = useProperty();
   const [open, setOpen] = useState(false);
   const [selectedProperty, setSelectedProperty] = useState("");
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 150;
-
-  const indexOfLast = currentPage * itemsPerPage;
-  const indexOfFirst = indexOfLast - itemsPerPage;
-
-  const currentProperties = properties?.slice(indexOfFirst, indexOfLast);
 
   /* ================= LOADING ================= */
 
@@ -97,7 +89,7 @@ export default function Properties() {
 
         <div className="lg:col-span-2 space-y-10">
 
-          {currentProperties.map((property) => (
+          {properties.map((property) => (
 
             <div
               key={property._id}
@@ -247,11 +239,11 @@ export default function Properties() {
           {/* ================= PAGINATION ================= */}
 
           <Pagination
-            totalItems={properties.length}
+            totalItems={totalItems}
             itemsPerPage={itemsPerPage}
-            currentPage={currentPage}
+            currentPage={page}
             onPageChange={(page) => {
-              setCurrentPage(page);
+              setPage(page);
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           />
