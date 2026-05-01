@@ -15,27 +15,30 @@ export const PropertyProvider = ({ children }) => {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+ const [page,setPage]=useState(1);
+  const limit=150;
+  const [totalItems,setTotalItems]=useState(0)
   const lastFetchedDomain = useRef(null);
 
   // ================= MAIN DOMAIN PROPERTIES =================
   const getPropertiesByDomain = async () => {
 
-    if (lastFetchedDomain.current === domain && properties.length > 0) {
-      return;
-    }
+    // if (lastFetchedDomain.current === domain && properties.length > 0) {
+    //   return;
+    // }
 
-    lastFetchedDomain.current = domain;
+    // lastFetchedDomain.current = domain;
 
     try {
       setLoading(true);
       setError(null);
 
       const res = await axios.get(
-        `https://deal-acres-backend.onrender.com/api/listed-properties/getPropertiesByDomain/${domain}`
+        `https://deal-acres-backend.onrender.com/api/listed-properties/getPropertiesByDomain/${domain}?page=${page}&limit=${limit}`
       );
 
       setProperties(res.data?.data || []);
+      setTotalItems(res.data?.total);
     } catch (err) {
       lastFetchedDomain.current = null;
       setError("Something went wrong");
@@ -46,7 +49,7 @@ export const PropertyProvider = ({ children }) => {
 
   useEffect(() => {
     getPropertiesByDomain();
-  }, []);
+  }, [page]);
 
   // ================= LOCALITY BASED =================
   const [data, setData] = useState(null);
@@ -88,7 +91,9 @@ export const PropertyProvider = ({ children }) => {
         loading,
         error,
         refetch: getPropertiesByDomain,
-
+         page,
+        setPage,
+          totalItems,itemsPerPage:limit, 
         // locality based
         data,
         loading2,
