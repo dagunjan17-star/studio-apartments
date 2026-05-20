@@ -1,111 +1,134 @@
-import FilterProperties from "./FilterProperties";
-import SidebarEnquiryForm from "@/components/SidebarEnquiryForm";
-import Breadcrumb from "@/components/Breadcrumb";
+// app/[area]/page.jsx
+
+import PageContent from "@/components/PageContent";
+import Listing from "./Listing";
+
+// import PageContent from "@/components/PageContent";
+
+const DOMAIN = "www.studioapartmentsingurgaon.com";
+const BASE_URL = "https://gurgaon-backend.onrender.com";
+
+// Fallback SEO
+const FALLBACK_META = {
+  title: "Studio Apartments in Gurgaon | Affordable & Modern Living",
+  description:
+    "Discover studio apartments in Gurgaon with modern amenities, compact layouts, and affordable living options in prime locations.",
+};
+
+// Common API Function
+const getPageData = async (slug) => {
+  try {
+    const res = await fetch(
+      `${BASE_URL}/api/page-content/getPageContent?domain=${DOMAIN}&slug=${slug}`,
+      {
+        cache: "no-store",
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch page data");
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
+
+// Dynamic Metadata
 export async function generateMetadata({ params }) {
-  const resolvedParams = await params;
-  const rawArea = resolvedParams?.area;
+  const { area } = await params;
 
-  const area = rawArea?.replace("studio-apartments-in-", "");
+  const result = await getPageData(area);
 
-  const formattedArea = area
-    ?.replace(/-/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
+  // Fallback Meta
+  if (!result?.success || !result?.data) {
+    return {
+      title: FALLBACK_META.title,
+      description: FALLBACK_META.description,
 
-  const locationName = formattedArea || "Gurgaon";
+      alternates: {
+        canonical: `https://${DOMAIN}/${area}`,
+      },
+
+      openGraph: {
+        title: FALLBACK_META.title,
+        description: FALLBACK_META.description,
+        url: `https://${DOMAIN}/${area}`,
+        siteName: DOMAIN,
+        locale: "en_IN",
+        type: "website",
+      },
+
+      twitter: {
+        card: "summary_large_image",
+        title: FALLBACK_META.title,
+        description: FALLBACK_META.description,
+      },
+
+      robots: {
+        index: true,
+        follow: true,
+      },
+    };
+  }
+
+  const data = result.data;
+
+  const canonicalUrl = `https://${DOMAIN}/${data.slug}`;
 
   return {
-    title: `Studio Apartments in ${locationName} | Buy & Invest in Studio Flats`,
-
-    description: `Explore studio apartments in ${locationName}. Find fully furnished studio flats with high rental returns, modern amenities, and excellent connectivity. Ideal for investors and working professionals in ${locationName}.`,
-
-    keywords: [
-      `studio apartments in ${locationName}`,
-      `studio flats ${locationName}`,
-      `buy studio apartment ${locationName}`,
-      `studio apartment investment ${locationName}`,
-      `furnished studio ${locationName}`,
-      `${locationName} studio property`,
-    ],
+    title: data.metaTitle,
+    description: data.metaDescription,
 
     alternates: {
-      canonical: `https://www.flatsforrentingurgaon.com/${rawArea}`,
+      canonical: canonicalUrl,
+    },
+
+    openGraph: {
+      title: data.metaTitle,
+      description: data.metaDescription,
+      url: canonicalUrl,
+      siteName: DOMAIN,
+      locale: "en_IN",
+      type: "website",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: data.metaTitle,
+      description: data.metaDescription,
+    },
+
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
+
+// Page Component
 export default async function Page({ params }) {
+  const { area } = await params;
 
-  const resolvedParams = await params;
-const rawArea = resolvedParams?.area;
+  const result = await getPageData(area);
 
-// ✅ CLEAN SLUG (IMPORTANT)
-const area = rawArea?.replace("studio-apartments-in-", "");
+  // // Fallback UI
+  // if (!result?.success || !result?.data) {
+  //   return (
+  //     <main>
+  //       <h1>{FALLBACK_META.title}</h1>
 
-// slug format → sector-9 → Sector 9
-const formattedArea = area
-  ?.replace(/-/g, " ")
-  .replace(/\b\w/g, (c) => c.toUpperCase());
+  //       <p>{FALLBACK_META.description}</p>
+  //     </main>
+  //   );
+  // }
 
   return (
-
-    <div className="bg-gradient-to-b from-white to-[#E6FFFA] min-h-screen">
-
-      <div className="max-w-7xl mx-auto px-4 py-10">
-<div className="mb-6">
-   <Breadcrumb />
-  </div>
-        {/* HEADING */}
-
-        <div className="mb-12">
-
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-
-            Studio Apartments in{" "}
-
-            <span className="text-[#3BC1A8]">
-              {formattedArea || "Gurgaon"}
-            </span>
-
-          </h1>
-
-          <p className="text-gray-600 mt-4 text-base max-w-2xl">
-            Discover premium studio apartments in {formattedArea || "Gurgaon"} 
-            offering high rental income, modern amenities, and excellent connectivity. 
-            Perfect for smart investors and working professionals.
-          </p>
-
-          <div className="w-24 h-1 bg-gradient-to-r from-[#3BC1A8] to-[#249E94] mt-6 rounded-full"></div>
-
-        </div>
-
-
-        {/* MAIN GRID */}
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-
-          {/* LEFT */}
-
-          <div className="lg:col-span-8 space-y-8">
-
-            <FilterProperties area={area} />
-
-          </div>
-
-
-          {/* RIGHT SIDEBAR */}
-
-          <div className="lg:col-span-4">
-
-            <div className="sticky top-28">
-              <SidebarEnquiryForm />
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
+    <main>
+      <Listing slug={area}/>
+      <PageContent pageContent={[result?.data?.pageContent]} area={result?.data?.locality} />
+    </main>
   );
 }
