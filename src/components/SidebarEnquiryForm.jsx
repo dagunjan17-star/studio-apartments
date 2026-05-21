@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const SidebarEnquiryForm = () => {
-
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -11,72 +11,99 @@ const SidebarEnquiryForm = () => {
   });
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
 
+  // INPUT CHANGE
   const handleChange = (e) => {
-
     const { name, value } = e.target;
 
+    // PHONE VALIDATION
     if (name === "phone") {
+      // only numbers
       if (!/^\d*$/.test(value)) return;
+
+      // max 10 digits
       if (value.length > 10) return;
     }
 
-    setFormData({ ...formData, [name]: value });
-
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
+  // SUBMIT FORM
   const handleSubmit = async (e) => {
-
     e.preventDefault();
 
-    setError("");
-    setSuccess("");
-
+    // PHONE CHECK
     if (formData.phone.length !== 10) {
-      setError("Phone number must be exactly 10 digits.");
+      toast.error(
+        "Phone number must be exactly 10 digits."
+      );
       return;
     }
 
-    try {
+    // WEBSITE
+    const website =
+      typeof window !== "undefined"
+        ? window.location.hostname.replace(
+            "www.",
+            ""
+          )
+        : "";
 
+    try {
       setLoading(true);
+
+      const payload = {
+        ...formData,
+        website,
+        source: "Sidebar Enquiry Form",
+      };
+
+      console.log("PAYLOAD:", payload);
 
       const res = await fetch("/api/submit", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type":
+            "application/json",
         },
-        body: JSON.stringify({
-          ...formData,
-          source: "Sidebar Studio Enquiry",
-        }),
+        body: JSON.stringify(payload),
       });
+
+      console.log("STATUS:", res.status);
 
       const data = await res.json();
 
+      console.log("RESPONSE:", data);
+
       if (data.success) {
+        toast.success(
+          "Request submitted successfully!"
+        );
 
-        setSuccess("Your enquiry has been submitted successfully!");
-        setFormData({ name: "", phone: "", message: "" });
-
+        // RESET FORM
+        setFormData({
+          name: "",
+          phone: "",
+          message: "",
+        });
       } else {
-
-        setError(data.error || "Something went wrong.");
-
+        toast.error(
+          data.error ||
+            "Something went wrong."
+        );
       }
-
     } catch (err) {
+      console.log("ERROR:", err);
 
-      setError("Network error. Please try again.");
-
+      toast.error(
+        "Network error. Please try again."
+      );
     } finally {
-
       setLoading(false);
-
     }
-
   };
 
   return (
@@ -139,23 +166,6 @@ const SidebarEnquiryForm = () => {
           outline-none resize-none transition"
         />
 
-        {/* ERROR */}
-
-        {error && (
-          <div className="bg-red-50 border border-red-200 text-red-600 text-sm px-4 py-2 rounded-lg">
-            {error}
-          </div>
-        )}
-
-        {/* SUCCESS */}
-
-        {success && (
-          <div className="bg-green-50 border border-green-200 text-green-600 text-sm px-4 py-2 rounded-lg">
-            {success}
-          </div>
-        )}
-
-        {/* BUTTON */}
 
         <button
           type="submit"
