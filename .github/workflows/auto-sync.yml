@@ -25,17 +25,21 @@ jobs:
         continue-on-error: true
         run: |
           git remote remove mirror || true
-
           git remote add mirror https://x-access-token:${{ secrets.GURGAON_ACCESS_TOKEN }}@github.com/dealacresGurgaon/Studio-Apartments.git
-
           git push mirror HEAD:main --force
 
-      # New Frontend Repo
+      # Frontend Repo
       - name: Sync to Gurgaon Studio Apartment Frontend
         continue-on-error: true
         run: |
           git remote remove frontend || true
-
           git remote add frontend https://x-access-token:${{ secrets.GURGAON_PROJECTS_ACCESS_TOKEN }}@github.com/mukeshkumar44/gurgaon-studio-apartment-frontend.git
-
           git push frontend HEAD:main --force
+
+      # Nagori Gate Repo
+      - name: Sync to Nagori Gate Studio Apartments
+        continue-on-error: true
+        run: |
+          git remote remove nagori || true
+          git remote add nagori https://x-access-token:${{ secrets.NAGORI_GATE_PROJECTS_ACCESS_TOKEN }}@github.com/dealacresnagorigate/studio-apartments.git
+          git push nagori HEAD:main --force
