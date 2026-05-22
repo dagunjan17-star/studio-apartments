@@ -7,6 +7,7 @@ import Link from "next/link";
 import ContactPopup from "@/components/ContactPopup";
 import SidebarEnquiryForm from "./SidebarEnquiryForm";
 import Pagination from "@/components/Pagination";
+import ViewDetailsButton from "./ViewDetailsButton";
 
 export default function Properties() {
 
