@@ -77,12 +77,12 @@ const HeroSection = () => {
         
         <div className="text-white">
 
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            Studio Apartments <br />
+          <h1 className="text-2xl md:text-4xl font-bold leading-tight">
+            Studio Apartments 
             <span className="text-[#3BC1A8]">in Gurgaon</span>
           </h1>
 
-          <p className="mt-6 text-lg text-gray-300 max-w-md">
+          <p className="mt-6 text-sm text-gray-300 max-w-4xl">
            Small footprint, big lifestyle — discover the world of studio apartments in Gurgaon! Studio apartments are revolutionising urban living in Gurgaon, offering young professionals, solo entrepreneurs, students, and frequent corporate travellers an intelligent, contemporary, and supremely convenient living experience. A studio apartment in Gurgaon packs everything you need — sleeping space, living area, compact kitchen, and bathroom — into a thoughtfully designed, typically 300-550 sq ft unit that maximises every inch without compromise. Located strategically near corporate hubs like DLF Cyber City, Udyog Vihar, and MG Road, studio apartments in Gurgaon eliminate long commutes and the stress of managing a larger space than you need. Whether you're renting a furnished studio apartment for a short corporate project, buying a studio as a smart investment property for rental income, or seeking a minimalist urban base between travels, Gurgaon's studio apartment market delivers. Prices are surprisingly affordable — studio apartments for rent start at ₹12,000/month and for purchase from ₹25 lakh — making them one of the city's most accessible real estate entry points. Explore our complete studio apartment listings in Gurgaon and find your perfect compact haven!
           </p>
 

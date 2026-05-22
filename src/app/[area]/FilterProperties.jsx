@@ -253,8 +253,15 @@ export default function FilterProperties({ area }) {
                   >
                     Get Price
                   </button>
-
-                  <Link
+                   <ViewDetailsButton className="w-full sm:w-auto flex-1
+                    bg-gradient-to-r from-[#3BC1A8] to-[#249E94]
+                    text-white px-6 py-2 rounded-lg
+                    hover:opacity-90 transition
+                    text-sm text-center"
+                   
+                                         slug={property.slug}
+                                         href={`https://www.dealacres.com/property/${property.slug}`}/>
+                  {/* <Link
                     href={`/properties/${property.slug}`}
                     className="w-full sm:w-auto flex-1
                     bg-gradient-to-r from-[#3BC1A8] to-[#249E94]
@@ -263,7 +270,7 @@ export default function FilterProperties({ area }) {
                     text-sm text-center"
                   >
                     View Details
-                  </Link>
+                  </Link> */}
 
                 </div>
 
