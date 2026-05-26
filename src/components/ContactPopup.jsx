@@ -1,18 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import toast from "react-hot-toast";
+import AlertPopup from "./AlertPopup";
 
 export default function ContactPopup({
   isOpen,
   onClose,
   propertyTitle,
 }) {
-  const [formData, setFormData] = useState({
+   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     message: "",
   });
+  const [popup, setPopup] = useState({
+  open: false,
+  type: "success",
+  message: "",
+});
 
   const [loading, setLoading] = useState(false);
 
@@ -43,10 +48,12 @@ export default function ContactPopup({
     e.preventDefault();
 
     // PHONE CHECK
-    if (formData.phone.length !== 10) {
-      toast.error(
-        "Phone number must be exactly 10 digits"
-      );
+       if (formData.phone.length !== 10) {
+      setPopup({
+  open: true,
+  type: "error",
+  message: "Phone number must be exactly 10 digits",
+});
       return;
     }
 
@@ -89,9 +96,11 @@ export default function ContactPopup({
       console.log("RESPONSE:", data);
 
       if (data.success) {
-        toast.success(
-          "Enquiry Submitted Successfully!"
-        );
+          setPopup({
+          open: true,
+          type: "success",
+          message: "Enquiry Submitted Successfully!",
+        })
 
         // RESET FORM
         setFormData({
@@ -100,20 +109,21 @@ export default function ContactPopup({
           message: "",
         });
 
-        // CLOSE POPUP
-        onClose();
       } else {
-        toast.error(
-          data.message ||
-            "Something went wrong"
-        );
+        setPopup({
+        open: true,
+        type: "error",
+        message: "Something went wrong. Please try again.",
+      });
       }
     } catch (err) {
       console.log("ERROR:", err);
 
-      toast.error(
-        "Server error. Please try again later."
-      );
+      setPopup({
+        open: true,
+        type: "error",
+        message: "Server error. Please try again later.",
+      });
     } finally {
       setLoading(false);
     }
@@ -163,7 +173,7 @@ export default function ContactPopup({
             className="w-full px-4 py-3 border border-gray-300 rounded-xl
             bg-white text-gray-900 placeholder-gray-400
             focus:ring-2 focus:ring-[#3BC1A8] focus:border-[#3BC1A8]
-            outline-none transition"
+            outline-none transition text-gray-900"
           />
 
           {/* PHONE */}
@@ -177,7 +187,7 @@ export default function ContactPopup({
             className="w-full px-4 py-3 border border-gray-300 rounded-xl
             bg-white text-gray-900 placeholder-gray-400
             focus:ring-2 focus:ring-[#3BC1A8] focus:border-[#3BC1A8]
-            outline-none transition"
+            outline-none transition text-gray-900"
           />
 
           {/* MESSAGE */}
@@ -191,7 +201,7 @@ export default function ContactPopup({
             className="w-full px-4 py-3 border border-gray-300 rounded-xl
             bg-white text-gray-900 placeholder-gray-400
             focus:ring-2 focus:ring-[#3BC1A8] focus:border-[#3BC1A8]
-            outline-none resize-none transition"
+            outline-none resize-none transition text-gray-900"
           />
 
          
@@ -219,7 +229,17 @@ export default function ContactPopup({
         </p>
 
       </div>
-
+<AlertPopup
+  open={popup.open}
+  type={popup.type}
+  message={popup.message}
+  onClose={() =>
+    setPopup({
+      ...popup,
+      open: false,
+    })
+  }
+/>
     </div>
 
   );

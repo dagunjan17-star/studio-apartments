@@ -1,14 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import toast from "react-hot-toast";
+import AlertPopup from "./AlertPopup";
 import Link from "next/link";
 const HeroSection = () => {
-  const [formData, setFormData] = useState({
+   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     message: "",
   });
+  const [popup, setPopup] = useState({
+  open: false,
+  type: "success",
+  message: "",
+});
 
   const [loading, setLoading] = useState(false);
 
@@ -32,7 +37,11 @@ const HeroSection = () => {
     e.preventDefault();
 
     if (formData.phone.length !== 10) {
-      toast.error("Phone must be 10 digits");
+     setPopup({
+        open: true,
+        type: "error",
+        message: "Phone number must be exactly 10 digits",
+      });
       return;
     }
 
@@ -48,13 +57,25 @@ const HeroSection = () => {
       const result = await res.json();
 
       if (result.success) {
-        toast.success("Enquiry Submitted!");
+          setPopup({
+          open: true,
+          type: "success",
+          message: "Enquiry Submitted Successfully!",
+        })
         setFormData({ name: "", phone: "", message: "" });
       } else {
-        toast.error("Try again");
+         setPopup({
+          open: true,
+          type: "error",
+          message: "Something went wrong. Please try again.",
+        })
       }
     } catch {
-      toast.error("Server error");
+         setPopup({
+  open: true,
+  type: "error",
+  message: "Server error. Please try later.",
+});
     } finally {
       setLoading(false);
     }
@@ -82,7 +103,7 @@ const HeroSection = () => {
             <span className="text-[#3BC1A8]">in Gurgaon</span>
           </h1>
 
-          <p className="mt-6 text-sm text-gray-300 max-w-4xl">
+          <p className="mt-6 text-sm text-gray-300 max-w-4xl leading-relaxed">
            Small footprint, big lifestyle — discover the world of studio apartments in Gurgaon! Studio apartments are revolutionising urban living in Gurgaon, offering young professionals, solo entrepreneurs, students, and frequent corporate travellers an intelligent, contemporary, and supremely convenient living experience. A studio apartment in Gurgaon packs everything you need — sleeping space, living area, compact kitchen, and bathroom — into a thoughtfully designed, typically 300-550 sq ft unit that maximises every inch without compromise. Located strategically near corporate hubs like DLF Cyber City, Udyog Vihar, and MG Road, studio apartments in Gurgaon eliminate long commutes and the stress of managing a larger space than you need. Whether you're renting a furnished studio apartment for a short corporate project, buying a studio as a smart investment property for rental income, or seeking a minimalist urban base between travels, Gurgaon's studio apartment market delivers. Prices are surprisingly affordable — studio apartments for rent start at ₹12,000/month and for purchase from ₹25 lakh — making them one of the city's most accessible real estate entry points. Explore our complete studio apartment listings in Gurgaon and find your perfect compact haven!
           </p>
 
@@ -170,7 +191,17 @@ const HeroSection = () => {
           </div>
 
         </div>
-
+<AlertPopup
+  open={popup.open}
+  type={popup.type}
+  message={popup.message}
+  onClose={() =>
+    setPopup({
+      ...popup,
+      open: false,
+    })
+  }
+/>
       </div>
 
     </section>
