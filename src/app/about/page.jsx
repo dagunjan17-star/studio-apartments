@@ -8,6 +8,9 @@ export const metadata = {
   keywords: [
    "about studio apartments Gurgaon", "trusted studio flat platform Gurgaon", "verified studio apartment listings Gurgaon", "studio apartment investment expert Gurgaon", "best studio apartment consultant Gurugram", "property expert studio Gurgaon", "1RK apartment advisor Gurgaon", "studio apartment ROI Gurgaon", "high return studio flat Gurgaon", "studio apartment dealer Gurgaon", "real estate consultant Gurgaon", "furnished apartment expert Gurgaon", "studio property platform Gurugram", "compact apartment advisor Gurgaon", "studio apartment investors Gurgaon"
   ],
+  alternates: {
+    canonical: "https://www.studioapartmentsingurgaon.com/about",
+  },
 };
 
 export default function Page() {

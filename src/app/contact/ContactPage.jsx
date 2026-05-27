@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import AlertPopup from "@/components/AlertPopup"
-
+import Breadcrumb from "@/components/Breadcrumb";
 export default function Page() {
 
   const [formData, setFormData] = useState({
@@ -124,10 +124,12 @@ export default function Page() {
       <section className="bg-gradient-to-b from-white to-[#E6FFFA] py-20 px-4 sm:px-6">
 
         <div className="max-w-7xl mx-auto">
-
+<div className="py-3">
+        <Breadcrumb/>
+      </div>
           {/* HEADING */}
 
-          <div className="text-center mb-16">
+          <div className=" mb-16">
 
             <h1 className="text-2xl md:text-4xl font-bold text-gray-900">
 
@@ -138,7 +140,7 @@ export default function Page() {
 
             </h1>
 
-            <p className="mt-6 text-gray-600 max-w-2xl mx-auto">
+            <p className="mt-6 text-gray-600 max-w-2xl ">
 
               Looking for <strong>studio apartments in Gurgaon</strong>? Whether you're
               investing for rental income or buying your first property,
@@ -147,7 +149,7 @@ export default function Page() {
 
             </p>
 
-            <div className="w-20 h-1 bg-gradient-to-r from-[#3BC1A8] to-[#249E94] mx-auto mt-6 rounded-full"></div>
+            <div className="w-20 h-1 bg-gradient-to-r from-[#3BC1A8] to-[#249E94]  mt-6 rounded-full"></div>
 
           </div>
 

@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
-
+import Breadcrumb from "@/components/Breadcrumb";
 export default function AboutPage() {
   return (
     <section className="bg-gradient-to-b from-white to-[#E6FFFA] px-4 py-24">
       <div className="max-w-7xl mx-auto">
-
+<div className="py-3">
+        <Breadcrumb/>
+      </div>
         {/* HERO */}
         <div className="grid md:grid-cols-2 gap-16 items-center mb-28">
 

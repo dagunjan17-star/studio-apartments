@@ -11,6 +11,9 @@ export const metadata = {
   keywords: [
     "how to buy studio apartment Gurgaon", "studio apartment buying process Gurgaon", "verified studio flat Gurgaon", "no broker studio apartment Gurgaon", "direct owner studio apartment Gurgaon", "free site visit studio Gurgaon", "studio apartment investment guide Gurgaon", "1RK buying guide Gurgaon", "studio flat purchase process Gurugram", "affordable studio apartment tips Gurgaon", "studio apartment legal check Gurgaon", "documents for studio apartment Gurgaon", "furnished flat buying guide Gurgaon", "studio apartment no middleman Gurgaon", "Deal Acres studio apartment Gurgaon"
   ],
+    alternates: {
+    canonical: "https://www.studioapartmentsingurgaon.com/how-it-works",
+  },
 };
 
 export default function Page() {

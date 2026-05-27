@@ -7,6 +7,9 @@ export const metadata = {
   keywords: [
  "contact studio apartment Gurgaon", "studio flat enquiry Gurgaon", "studio apartment callback Gurgaon", "free consultation studio Gurgaon", "studio apartment expert Gurugram", "1RK apartment inquiry Gurgaon", "register studio apartment requirement Gurgaon", "book site visit studio Gurgaon", "studio flat helpline Gurgaon", "property consultant studio Gurgaon", "furnished apartment inquiry Gurgaon", "studio apartment query Gurugram", "investment property enquiry Gurgaon", "studio flat contact Gurgaon", "best studio apartment deals Gurgaon"
   ],
+  alternates: {
+    canonical: "https://www.studioapartmentsingurgaon.com/contact",
+  },
 };
 
 export default function Page() {

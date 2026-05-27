@@ -8,6 +8,7 @@ import ContactPopup from "@/components/ContactPopup";
 import SidebarEnquiryForm from "./SidebarEnquiryForm";
 import Pagination from "@/components/Pagination";
 import ViewDetailsButton from "./ViewDetailsButton";
+import NearbyLocations from "./NearbyLocations";
 
 export default function Properties() {
 
@@ -90,10 +91,11 @@ export default function Properties() {
 
         <div className="lg:col-span-2 space-y-10">
 
-          {properties.map((property) => (
-
+          {properties.map((property , index) => (
+              <div
+              key={property._id}>
             <div
-              key={property._id}
+              
               className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100 md:h-[250px]"
             >
 
@@ -236,6 +238,12 @@ export default function Properties() {
 
               </div>
 
+            </div>
+               {(index + 1) % 10 === 0 && (
+              <NearbyLocations
+                properties={properties.slice(index - 9, index + 1)}
+              />
+            )}
             </div>
 
           ))}
