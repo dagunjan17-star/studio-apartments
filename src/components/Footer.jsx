@@ -54,12 +54,15 @@ export default function Footer() {
 
             {visibleLocations.map((loc, index) => (
               <Link
-                key={index}
-                href={`/studio-apartments-in-${createSlug(loc)}-gurgaon`}
-                className="text-gray-400 hover:text-[#3BC1A8] transition truncate"
+               
+key={index}
+  href={`https://www.dealacres.com/properties/studio-apartments-in-${createSlug(loc)}-gurgaon`}
+  target="_blank"
+  rel="noopener noreferrer"               
+    className="text-gray-400 hover:text-[#3BC1A8] transition truncate"
               >
                 {/* 🔥 SHORT TEXT */}
-                {loc}
+               Studio Apartments in {loc}
               </Link>
             ))}
 
