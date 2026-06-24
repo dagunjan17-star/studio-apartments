@@ -17,7 +17,7 @@ export default function Footer() {
   const [showAll, setShowAll] = useState(false);
 
   // 🔥 mobile pe kam data dikha
-  const initialCount = 50;
+  const initialCount = 19;
 
   const visibleLocations = showAll
     ? locations
@@ -66,9 +66,6 @@ key={index}
               </Link>
             ))}
 
-          </div>
-
-          {/* 🔥 BUTTON */}
           {locations.length > initialCount && (
             <div className="mt-4 text-center">
               <button
@@ -79,6 +76,9 @@ key={index}
               </button>
             </div>
           )}
+          </div>
+
+          {/* 🔥 BUTTON */}
         </div>
 
         {/* 🔥 NAV */}
@@ -108,7 +108,7 @@ key={index}
         <div className="border-t border-[#1a2238] pt-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
 
           <p className="text-xs sm:text-sm text-gray-500">
-            © {new Date().getFullYear()} Studio Apartments Gurgaon
+            © {new Date().getFullYear()} Studio Apartments In Gurgaon
           </p>
 
           <Link
@@ -116,7 +116,7 @@ key={index}
             target="_blank"
             className="text-xs sm:text-sm text-[#3BC1A8]"
           >
-            Parchar Manch
+           Desgined By:- Parchar Manch
           </Link>
 
         </div>
