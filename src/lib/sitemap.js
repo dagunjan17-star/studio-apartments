@@ -1,15 +1,5 @@
 import axios from "axios";
-import { locations } from "@/data/locations";
 
-// 🔥 SLUG FUNCTION
-const createSlug = (location) => {
-  return location
-    .replace(", Gurgaon", "")
-    .toLowerCase()
-    .replace(/,/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-");
-};
 
 const currentDate =
     new Date().toISOString();
@@ -32,36 +22,6 @@ export async function generateSitemap() {
 
   `;
 
- //properties URLs
-  // let propertiesUrls = [];
-  // try {
-  //   const res = await axios.get(
-  //     `https://gurgaon-backend.onrender.com/api/listed-properties/getPropertiesSlugs/www.studioapartmentsingurgaon.com`
-  //   );
-
-  //   propertiesUrls = res.data.map(
-  //     (slug) => `
-  //       <url>
-  //         <loc>${baseUrl}/properties/${slug}</loc>
-  //    <lastmod>${currentDate}</lastmod>
-  //       </url>
-  //     `
-  //   );
-  // } catch (err) {
-  //   console.error("Blog fetch error:", err);
-  // }
-
-  // 🔥 LOCATION URLs (MAIN PART)
-  const locationUrls = locations.map((loc) => {
-    const slug = createSlug(loc);
-
-    return `
-      <url>
-        <loc>${baseUrl}/studio-apartments-in-${slug}-gurgaon</loc>
-     <lastmod>${currentDate}</lastmod>
-      </url>
-    `;
-  });
 
   let blogUrls = [];
 
@@ -102,8 +62,6 @@ export async function generateSitemap() {
   // 🔹 Combine all
   const allUrls = [
     staticUrls,
-    ...locationUrls,
-    // ...propertiesUrls,
      ...blogUrls,
   ].join("\n");
 
