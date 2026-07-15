@@ -152,7 +152,7 @@ if (
               key={item._id}
                   onClick={() =>
                     window.open(
-                      `https://www.dealacres.com/properties/studio-apartments-for-sale-in-${item.slug}`,
+                      `https://www.dealacres.com/properties/studio-apartments-for-sale-in-gurgaon`,
                       "_blank"
                     )
                   }
